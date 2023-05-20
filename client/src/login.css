@@ -1,0 +1,23 @@
+h3 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 27px;
+    font-family: 'Merienda', sans-serif;
+    margin: 1rem auto;
+    color: #71717561;
+    background: -webkit-gradient(linear, left top, right top, from(#e6e6e6), to(#1d1c1c), color-stop(0.8, #ffffff)) no-repeat;
+    background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.8, #fff)) no-repeat;
+    background-size: 110px 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: flick 2.5s infinite;
+}
+
+@keyframes flick {
+    0% {
+        background-position: top left;
+    }
+    100% {
+        background-position: top right;
+    }
+}
