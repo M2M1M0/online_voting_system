@@ -71,7 +71,7 @@ export default function Report(){
                     {/*  */}
                     <div className="flex gap-12">
                         <div className="flex flex-col font-sans text-base bg-white text-emerald-500 gap-5 w-64 max-h-max p-5 shadow-2xl">
-                            <h1>People who caste thier Voter</h1>
+                            <h1>People who caste thier Votes</h1>
                             
                             {/* <span className="text-bold">{votesCaste}</span> */}
                             <div style={{ width: 100, height: 100 }}>
@@ -92,7 +92,7 @@ export default function Report(){
                             </div>
                         </div>
                         <div className="flex flex-col font-sans text-base bg-white text-sky-500 gap-5 w-64 max-h-max p-5 shadow-2xl">
-                            <h1>People who didn't caste thier Voter</h1>
+                            <h1>People who didn't caste thier Votes</h1>
                             {/* <span className="text-bold">{voters - votesCaste}</span> */}
                             <div style={{ width: 100, height: 100 }}>
                                 <CircularProgressbar
@@ -113,17 +113,26 @@ export default function Report(){
                     </div>
                     {/* Participated party */}
                     <div >
-                        <h1>Parties and thier votes</h1>
+                        <h1 >Votes</h1>
                     </div>
-                    <div className="flex gap-5">
-                        <h2>Name</h2>
-                        <div className="flex flex-col">
+                    <table className="table w-1/3 border-collapse border border-slate-900 text-left">
+                        <thead>
+                            <tr className="bg-sky-500 border">
+                                <th>#</th>
+                                <th>Party Name</th>
+                                <th>Votes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             {castedParty.map((party, index) => (
-                            <span key={index}
-                            className="text-bold"> {party.partyname }</span>
+                            <tr key={index} className="text-2xl border border-emerald-400">
+                                <td>{index +1}</td>
+                                <td>{party.partyname }</td>
+                                <td>{party.votes_count}</td>
+                            </tr> 
                             ))}
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
                 {/* Grapgh report */}
                
