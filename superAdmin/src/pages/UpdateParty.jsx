@@ -47,10 +47,10 @@ export default function UpdateParty(){
 return(
     <>
     <div className="flex flex-row h-screen">
-        <div className="w-1/5">
+        <div className="w-1/7">
             <Menu />
         </div>
-        <div className="pl-2 w-4/5">
+        <div className="pl-2 flex-1">
             <div className="flex flex-col h-screen">
                 <div className="h-16 w-full flex flex-col text-center bg-gray-950 text-white">
                     <h1 className='font-semibold text-base sm:text-2xl'>Update Party</h1>

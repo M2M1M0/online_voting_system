@@ -47,10 +47,10 @@ export default function Dashboard(){
 return(
     <>
     <div className="flex flex-row">
-            <div className="w-1/5">
+            <div className="w-1/7">
                 <Menu />
             </div>
-            <div className="pl-2 pt-3 w-4/5">
+            <div className="pl-2 pt-3 flex-1">
                 <div className="flex flex-col space-y-4">
                     <div className="font-semibold text-5xl text-sky-700">
                         <h1>Dashboard</h1>

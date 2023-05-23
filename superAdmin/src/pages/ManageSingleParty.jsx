@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Menu from "../components/Menu";
 import { TiUserDelete } from 'react-icons/ti'
+import img from '../images/ndp.jpg'
 
 function ManageSingleParty() {
 
@@ -85,10 +86,10 @@ function ManageSingleParty() {
 return ( 
 <>
 <div className="flex flex-row">
-    <div className="w-1/6">
+    <div className="w-1/7">
         <Menu />
     </div>
-    <div className="pl-5 pt-3 w-5/6">
+    <div className="pl-5 pt-3 flex-1">
         <div className="font-semibold text-6xl text-sky-500 my-5 text-center">
             {party.partyname}
         </div>
@@ -101,7 +102,7 @@ return (
 
         <div className="flex">
             <div className="w-80 h-64 hover:bg-slate-900 m-3">
-                <img src={party.logo} alt="something wrong!"  />
+                <img src={img} alt="something wrong!"  className="w-80 h-64"/>
             </div>
             <div className="ml-5 mt-10">
                 <div className="flex flex-col space-y-3">

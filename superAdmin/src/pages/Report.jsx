@@ -9,8 +9,9 @@ export default function Report(){
 
     
 
-    const [voters, setVoters] = useState(null)
-    const [votesCaste, setVotesCaste] = useState(null)
+    const [voters, setVoters] = useState(0)
+    const [votes, setVotes] = useState(0)
+    const [votesCaste, setVotesCastePercentile] = useState(0)
     const [castedParty, setCastedParty] = useState([])
 
 
@@ -27,7 +28,8 @@ export default function Report(){
         axios.get(`http://localhost:8800/voter/who/gavevote`)
         .then(res => {
             const votes = res.request.response.split(":")[1].split("}")[0]
-            setVotesCaste(((votes/voters) * 100).toFixed(0))
+            setVotes(votes)
+            setVotesCastePercentile(((votes/voters) * 100).toFixed(0))
         })
         .catch(err => console.log(err))
 
@@ -47,10 +49,10 @@ export default function Report(){
 return(
     <>
      <div className="flex flex-row">
-        <div className="w-1/6">
+        <div className="w-1/7">
             <Menu />
         </div>
-        <div className="pl-2 pt-3 w-5/6">
+        <div className="pl-2 pt-3 flex-1">
             <h1 className="text-2xl text-center">Report</h1>
             <div className="flex gap-4 p-8 flex-col">
                 <div className="flex gap-5">
@@ -106,12 +108,13 @@ return(
                 <div >
                     <h1 >Votes</h1>
                 </div>
-                <table className="table w-1/3 border-collapse border border-slate-900 text-left">
+                <table className="table w-1/2 border-collapse border border-slate-900 text-left">
                     <thead>
                         <tr className="bg-sky-500 border">
                             <th>#</th>
                             <th>Party Name</th>
                             <th>Votes</th>
+                            <th>Percentage</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,6 +123,8 @@ return(
                             <td>{index +1}</td>
                             <td>{party.partyname }</td>
                             <td>{party.votes_count}</td>
+                            <td>{((party.votes_count) / (votes)).toFixed(2) * 100 }%</td>
+
                         </tr> 
                         ))}
                     </tbody>

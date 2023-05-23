@@ -89,10 +89,10 @@ export default function SignupParty(){
 return(
     <>
     <div className="flex flex-row h-screen">
-        <div className="w-1/5">
+        <div className="w-1/7">
             <Menu />
         </div>
-        <div className="pl-2 w-4/5">
+        <div className="pl-2 flex-1">
                 <div className="h-16 w-full flex flex-col text-center bg-gray-950 text-white">
                     <h1 className='font-semibold text-base sm:text-2xl'>Register Now</h1>
                     <p className=''>National election board of ethiopia</p>

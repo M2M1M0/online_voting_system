@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import img from '../images/userdefault.png'
+import './menu.css'
 
 //ICONS
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -26,52 +27,53 @@ export default function Menu(){
 
 return(
     <>
-    <div className="h-screen bg-slate-900 text-white">
-        <div className="flex flex-col">
+    <div className="h-screen bg-white text-gray-500 pr-3 border-r-2 border-gray-100">
+        <div className="flex flex-col ">
             <img 
-                className="mx-3 mt-2 h-24 w-24 rounded-full cursor-pointer"
+                className="mx-3 mt-6 h-20 w-20 rounded-full cursor-pointer"
                 src={img} alt="" />
-                <div className='flex pl-20'>
-                    <span>{user ? user.fname : <>Super Admin</>}</span>
-                </div>
+            <div className='flex pl-20'>
+                <span>{user ? user.fname : <>Super Admin</>}</span>
+            </div>
             
-            <ul className="py-8 space-y-0">
+            <ul className="py-8 space-y-0 mt-4 ">
                 <Link to={'/superAdmin'}>
-                    <li className="p-3 hover:bg-slate-950 space-x-3">
-                            <DashboardIcon/>
-                            <span>Dashoard</span>
+                    <li className="p-3 hover:bg-gray-100 hover:tracking-wide space-x-3">
+                        <span className="text-purple-800"><DashboardIcon/></span>
+                        <span>Dashoard</span>
                     </li>
                 </Link>
                 <Link to={'/superAdmin/manageAdmins'}>   
-                    <li className="p-3 hover:bg-slate-950 space-x-3">
-                            <ManageAccountsIcon/>
-                            <span>Manage Admins</span>
+                    <li className="p-3 hover:bg-gray-200 hover:tracking-wide space-x-3">
+                        <span className="text-purple-800"> <ManageAccountsIcon/></span>
+                        <span>Manage Admins</span>
                     </li>
                 </Link>
                 <Link to={'/superAdmin/manageParties'}>   
-                    <li className="p-3 hover:bg-slate-950 space-x-3">
-                            <ManageAccountsIcon/>
-                            <span>Manage Parties</span>
+                    <li className="p-3 hover:bg-gray-200 hover:tracking-wide space-x-3">
+                        <span className="text-purple-800"> <ManageAccountsIcon/></span>
+                        <span>Manage Parties</span>
                     </li>
                 </Link>
                 <Link to={'/superAdmin/manageStations'}>   
-                    <li className="p-3 hover:bg-slate-950 space-x-3">
-                            <ManageAccountsIcon/>
-                            <span>Manage Stations</span>
+                    <li className="p-3 hover:bg-gray-200 hover:tracking-normal space-x-3">
+                        <span className="text-purple-800"> <ManageAccountsIcon/></span>
+                        <span>Manage Stations</span>
                     </li>
                 </Link>
                
                 <Link to={'/superAdmin/report'}>     
-                    <li className="p-3 hover:bg-slate-950 space-x-3">      
-                            <AssessmentIcon/>                 
-                            <span>Report</span>
+                    <li className="p-3 hover:bg-gray-200 hover:tracking-wide space-x-3">      
+                        <span className="text-purple-800"><AssessmentIcon/></span>
+                        <span>Report</span>
                     </li>
                 </Link>
             </ul>
             <span 
                 onClick={() => logout()}
-                className="p-3 hover:bg-slate-950 space-x-3 cursor-pointer">
-                    <LogoutIcon/>
+                className="p-3 hover:bg-gray-200 space-x-3 hover:tracking-wide cursor-pointer">
+                    
+                    <span className="text-purple-800"><LogoutIcon/></span>
                     <span>Logout</span>
             </span>
         </div>
