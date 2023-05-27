@@ -52,7 +52,7 @@ export default function Login() {
             <Link to={'/'}>
                 <img src={evoting} alt="Oops" className="w-48 h-full cursor-pointer"/>
             </Link>
-            <img src={Flag_of_Ethiopia} alt="" className='w-24 h-12'/>
+            <img src={Flag_of_Ethiopia} alt="" className='sm:w-24 sm:h-12 h-8 w-16'/>
 
         </div>
         <div className="flex sm:flex-row gap-8 flex-col-reverse h-auto w-auto rounded border shadow-2xl p-8 pb-0 ">
@@ -60,7 +60,7 @@ export default function Login() {
                 <img src={logo} alt="Oops" className="w-full sm:pr-16 p-0"/>
             </div>
             <div className="sm:w-1/2 w-full  flex flex-col space-y-6 sm:pb-16 p-1 sm:mx-5 mx-2 bg-gray-100">
-                <h3 className="welcome text-center text-4xl font-normal py-3 transition ease-in-out delay-150  hover:scale-110">
+                <h3 className="welcome text-center sm:text-4xl text-1xl font-normal py-3 transition ease-in-out delay-150  hover:scale-110">
                     WELCOME
                 </h3>
                 { error && 
@@ -68,7 +68,7 @@ export default function Login() {
                     {error}
                 </div>
                 }
-                <form action="" className="px-8">
+                <form action="" className="sm:px-8 px-0">
                     <div className="space-y-4 ">
                         <div className="flex flex-col space-y-2">
                             <label htmlFor="" className="mx-3">Username</label>

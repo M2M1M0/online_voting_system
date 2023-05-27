@@ -16,6 +16,11 @@ export default function UpdateAdmin(){
         setAdmin({...admin, [e.target.name] : e.target.value})
     }
 
+    // const handleFile = (e) => {
+    //     setFile(e.target.files[0])
+
+    // }
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
@@ -49,7 +54,7 @@ export default function UpdateAdmin(){
 return(
     <>
     <div className="flex flex-row h-screen">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
         <div className="pl-2 flex-1">

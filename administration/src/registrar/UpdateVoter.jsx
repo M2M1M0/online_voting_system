@@ -60,7 +60,7 @@ return(
                     <h1 className='font-semibold text-base sm:text-2xl'>Update Registrar</h1>
                     <p className=''>National Election Board of Ethiopia</p>
                 </div>
-                <div className="pl-10 pb-4 pt-2 sm:px-16 md:px-8 sm:py-8 overflow-scroll" >
+                <div className="pl-10 pb-4 pt-2  sm:py-8 overflow-scroll" >
                     
                     <div className="text-center mb-8 text-2xl">
                         <span className="p-3 text-gray-500">Username : </span>  {voter.IDnumber}
@@ -81,7 +81,7 @@ return(
                     <form action="" onSubmit={e => handleSubmit(e)}>
                         <div
                             className="flex flex-wrap gap-3 w-full mt-3 items-center">
-                            <div className="flex flex-col gap-2 w-3/4 ">
+                            <div className="flex flex-col gap-2 w-full ">
                                 <label htmlFor="">Full Name <span className='text-red-500 text-3xl'>*</span></label>
                                 <div className='flex  gap-3'>
                                     <div>
@@ -151,7 +151,7 @@ return(
                                         </div>
                                         <span className="span">Phone Number should start with +251 and Valid</span>
                                 </div>
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-auto'>
                                     <label htmlFor="">Email ( <span className="text-emerald-500 "> Optionl </span> )</label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -172,6 +172,7 @@ return(
                                         onChange={e => handleChange(e)}/>
                                 </div>
                                 
+                            </div>
                                 <div className='flex flex-row text-center gap-1 sm:gap-3  text-black py-12 pl-3'>
                                     <button 
                                         
@@ -187,7 +188,6 @@ return(
                                         </Link>
                                     </button>
                                 </div>
-                            </div>
                         </div>
                     </form>
                     

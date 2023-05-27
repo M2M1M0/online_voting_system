@@ -16,10 +16,12 @@ export default function ManageAdmins(){
 
     const [ error, setError ] = useState(false)
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, stationid) => {
         if(window.confirm("Are you sure! you want to delete this Admin?")){
             // Remove admin
-            axios.delete(`http://localhost:8800/admin/${id}`)
+            console.log(id, "user")
+            console.log(stationid, "station")
+            axios.delete(`http://localhost:8800/admin/${id}/${stationid}`)
             .then(() => console.log("Delete success"))
             .catch(err => setError(err.message))
         } else {
@@ -53,7 +55,7 @@ export default function ManageAdmins(){
 
     useEffect(() => {
         // Get all Admins
-        axios.get("http://localhost:8800/admin/and/station")
+        axios.get("http://localhost:8800/admin/getAll/admins")
             .then(response => {
                 // console.log(response.data) 
                 setAdmin(response.data)
@@ -67,49 +69,55 @@ export default function ManageAdmins(){
 return(
     <>
     <div className="flex flex-row">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
-        <div className="pl-2 pt-3 flex-1">
+        <div className="pl-14 sm:pl-3 pt-3 w-5/6">
             <div className="flex flex-col space-y-5">
                 <div className="font-semibold text-5xl text-sky-700">
                     <h1>Manage Admins</h1>
                 </div>
-                <div className="flex flex-row space space-x-96">
-                    <div className="flex flex-row space-x-5">
+                <div className="flex sm:flex-row  flex-col space-y-8 sm:space-x-96">
+                    <div className="flex sm:flex-row flex-col space-y-5 space-x-5">
                         
-                        <div className="text-center flex">
-                            <input
-                                className="pl-5 border-sky-700 bg-white w-72 hover:bg-slate-300" 
-                                type="text" 
-                                name="key"
-                                defaultValue={searchkey}
-                                onChange={e => setSearch(e.target.value)}
-                                placeholder=" Search by Name /Phone"/>  
+                        <div className="items-center flex">
+                            <div>
+                                <input
+                                    className="pl-5 p-2 border-sky-700 bg-white w-72 hover:bg-slate-300" 
+                                    type="text" 
+                                    name="key"
+                                    defaultValue={searchkey}
+                                    onChange={e => setSearch(e.target.value)}
+                                    placeholder=" Search by Name /Phone"/>  
 
-                            <button 
-                                onClick={() => search(searchkey)}
-                                className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
-                               
-                                <MdPersonSearch 
-                                    className="text-4xl"/>
-                            </button> 
+                            </div>
+                            <div>
+                                <button 
+                                    onClick={() => search(searchkey)}
+                                    className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
+                                
+                                    <MdPersonSearch 
+                                        className="text-4xl"/>
+                                </button> 
+
+                            </div>
+
                         </div>
-                         
-                        <button 
-                            onClick={(e) => reload()}
-                            className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
-                            Reload
-                        </button>  
+                        <div>
+                            <button 
+                                onClick={(e) => reload()}
+                                className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
+                                Reload
+                            </button>  
+                        </div>
                     </div>  
-                    <div>
+                    <div className="items-center">
                         <Link to={'/superAdmin/signupAdmin'}>
                             <button 
                                 className="px-8 py-3 bg-emerald-600 hover:bg-emerald-400 text-white"> 
                                 Add Admin 
                             </button> 
                         </Link>
-                                     
                     </div>
                 </div>
                 <div className="flex flex-col bg-slate-900">
@@ -162,7 +170,7 @@ return(
                                             </div>
                                         </Link>
     
-                                        <div onClick={() => handleDelete(user._id)}
+                                        <div onClick={() => handleDelete(user._id, user.stationId)}
                                             className="rounded-3xl px-3 py-1 text-white font-bold bg- bg-red-800 hover:bg-red-500 cursor-pointer"  >
                                             <TiUserDelete className="text-2xl" />
                                         </div>

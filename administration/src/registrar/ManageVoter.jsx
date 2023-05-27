@@ -79,13 +79,13 @@ return(
         <div className="w-1/6">
             <Menu />
         </div>
-        <div className="pl-2 pt-3 w-5/6">
-            <div className="flex flex-col space-y-5">
+        <div className="sm:pl-2 pl-4 pt-3 w-5/6">
+            <div className="flex flex-col sm:pl-2 pl-8 space-y-5">
                 <div className="font-semibold text-5xl text-sky-700">
                     <h1>Manage Voters</h1>
                 </div>
-                <div className="flex flex-row space space-x-96">
-                    <div className="flex flex-row space-x-5">
+                <div className="flex sm:flex-row flex-col pl-8 space-y-5 sm:space-x-96">
+                    <div className="flex sm:flex-row flex-col space-y-4 sm:space-x-5">
                         
                         <div className="text-center flex">
                             <input
@@ -100,15 +100,16 @@ return(
                                 onClick={() => search(searchkey)}
                                 className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
                                 <MdPersonSearch 
-                                    className="text-4xl"/>
+                                    className="text-2xl"/>
                             </button> 
                         </div>
-                         
-                        <button 
-                            onClick={(e) => reload()} 
-                            className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
-                            Reload
-                        </button>  
+                        <div>
+                            <button 
+                                onClick={(e) => reload()} 
+                                className="py-4 px-5 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
+                                Reload
+                            </button>  
+                        </div>
                     </div>  
                     <div>
                         <Link to={'/admin/signupVoter'}>

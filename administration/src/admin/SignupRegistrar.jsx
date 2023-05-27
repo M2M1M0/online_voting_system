@@ -4,6 +4,7 @@ import axios from 'axios'
 import Menu from "./Menu";
 import { AuthContext } from "../context/authContext";
 import './style.css'
+import userdefault from '../images/userdefault.png'
 
 //ICONS
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
@@ -21,7 +22,6 @@ const initialState = {
     image: "",
     password : "",
     conpassword : "",
-    userRole : "registrar"
 }
 
 export default function SignupRegistrar(){
@@ -39,18 +39,40 @@ export default function SignupRegistrar(){
         setRegistrar({...registrar, [e.target.name] : e.target.value})
     }
 
+    const handleFile = (e) => {
+        setFile(e.target.files[0])
+
+    }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const data = new FormData(e.target)
-        // console.log(Object.fromEntries(data.entries()), "Entries")
-        console.log(registrar, "registrar")
+        
+        const data = [
+            registrar.fname,
+            registrar.midname,
+            registrar.lname,
+            registrar.phone,
+            registrar.email,
+            registrar.stationid,
+            registrar.gender,
+            registrar.dob,
+            registrar.username,
+            registrar.password,
+            registrar.conpassword,
+            file
+        ]
+
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }
         
         try{
             
             // REGISTER registrar
-            await axios.post("http://localhost:8800/registrar/signup", registrar)
+            await axios.post("http://localhost:8800/registrar/signup", data, config)
                 .then(res => {
                     console.log(res)
                     setSuccess("Successfully Register")
@@ -114,7 +136,7 @@ return(
                     }
                     <form  onSubmit={e => handleSubmit(e)} className="px-8">
                         <div>
-                            <div className="flex flex-col gap-2 w-3/4 ">
+                            <div className="flex flex-col gap-2 ">
                                 <label htmlFor="">Full Name <span className='text-red-500 text-3xl'>*</span></label>
                                 <div className='flex  gap-3'>
                                     <div>
@@ -165,7 +187,7 @@ return(
                                 </div>
                             </div>
                             <div className="flex flex-wrap gap-3 w-full mt-3 items-center ">
-                                <div className='flex flex-col gap-2 w-2/5 '>
+                                <div className='flex flex-col gap-2 w-5/12 '>
                                     <label htmlFor="">Phone Number <span className='text-red-500 text-3xl'>*</span></label>
                                     <div className="flex">
                                         <b className="text-center flex p-2 bg-gray-300 rounded-l-md">+251 </b>
@@ -186,7 +208,7 @@ return(
 
                                 </div>
                             
-                                <div className='flex flex-col gap-2  w-2/5'>
+                                <div className='flex flex-col gap-2  w-5/12'>
                                     <label htmlFor="">Gender <span className='text-red-500 text-3xl'>*</span></label>
                                     <div className="space-x-6  flex flex-row">
                                         <div>
@@ -212,7 +234,7 @@ return(
                                     </div>
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Date of Birth <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -223,7 +245,7 @@ return(
                                         onChange={e => handleChange(e)}/>
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Email ( <span className="text-emerald-500 "> Optionl </span> )</label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -239,7 +261,7 @@ return(
 
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5 '>
+                                <div className='flex flex-col gap-2 w-5/12 '>
                                     <label htmlFor="">Username <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -256,14 +278,14 @@ return(
 
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5 pl-8'>
+                                <div className='flex flex-col gap-2 w-5/12 pl-8'>
                                     <img
                                     
-                                    className="w-32 h-32 border-2 rounded-full object-cover"
+                                    className="w-32 h-32 rounded-full object-cover"
                                         src={
                                             file
                                             ? URL.createObjectURL(file)
-                                            : null
+                                            : userdefault
                                         }
                                         alt=""
                                         />
@@ -276,13 +298,12 @@ return(
                                             style={{display: "none"}}
                                             value={registrar.image}
                                             onChange={(e) => {
-                                                handleChange(e)
-                                                setFile(e.target.files[0])
+                                                handleFile(e)
                                             }} />
                                 </div>
 
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Password <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -302,7 +323,7 @@ return(
 
                                
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Confirm Password <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -317,7 +338,7 @@ return(
 
                                 </div>
                                 
-                                <div className="w-2/5">
+                                <div className="w-5/12">
                                     <input 
                                         type="hidden" 
                                         name="userRole"

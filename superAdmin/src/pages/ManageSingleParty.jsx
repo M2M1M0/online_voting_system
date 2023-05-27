@@ -76,7 +76,7 @@ function ManageSingleParty() {
         // console.log(Id, "ID")
         axios.get(`http://localhost:8800/participateIn/${partyname}`)
             .then(res => {
-                console.log(res.data, "data")
+                // console.log(res.data, "data")
                 setParticipateIn(res.data)})
             .catch(err => { setError(err.message)})
 
@@ -86,11 +86,11 @@ function ManageSingleParty() {
 return ( 
 <>
 <div className="flex flex-row">
-    <div className="w-1/7">
+    <div className="w-1/6">
         <Menu />
     </div>
-    <div className="pl-5 pt-3 flex-1">
-        <div className="font-semibold text-6xl text-sky-500 my-5 text-center">
+    <div className="sm:pl-5 pl-24 pt-3 flex-1">
+        <div className="font-semibold text-6xl text-sky-500 my-5 sm:text-center pl-20">
             {party.partyname}
         </div>
         <hr />
@@ -100,18 +100,18 @@ return (
         </div>
         }
 
-        <div className="flex">
+        <div className="flex sm:flex-row flex-col">
             <div className="w-80 h-64 hover:bg-slate-900 m-3">
-                <img src={img} alt="something wrong!"  className="w-80 h-64"/>
+                <img src={`http://localhost:8800/uploads/${party.logo}`} alt="something wrong!"  className="w-80 h-64"/>
             </div>
-            <div className="ml-5 mt-10">
+            <div className="sm:ml-5 ml-10 mt-10">
                 <div className="flex flex-col space-y-3">
-                    <p  className="text-5xl font-serif">{party.repname}</p>
+                    <p  className="sm:text-5xl text-3xl font-serif">{party.repname}</p>
                     <h1 className="font-mono text-base">{party.slogan}</h1>
                 </div>
             </div>
         </div>
-        <div className="flex justify-between pr-60">
+        <div className="flex justify-between sm:flex-row flex-col text-center pr-60">
             <div className="text-3xl font-semibold">
                 <h1>Participate in:</h1>
                 { participateIn.length ? participateIn.map((participateIn, index) => (
@@ -130,7 +130,7 @@ return (
             </div>
             <div className="flex flex-col w-64 space-y-3">
             { success && 
-            <div className="bg-emerald-300 text-emerald-900 text-base p-3">
+            <div className="bg-emerald-300  text-right text-emerald-900 text-base p-3">
                 {success}
             </div>
             }

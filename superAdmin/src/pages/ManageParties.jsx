@@ -41,10 +41,10 @@ export default function ManageParties(){
         setFind([])
     }
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, partyname) => {
         if(window.confirm("Are you sure! you want to delete this Party?")){
             // Remove party
-            axios.delete(`http://localhost:8800/party/${id}`)
+            axios.delete(`http://localhost:8800/party/${id}/${partyname}`)
             .then(() => console.log("Delete success"))
             // .then(data => setParty(data))
             .catch(err => setError(err.message))
@@ -68,38 +68,46 @@ export default function ManageParties(){
 return(
     <>
     <div className="flex flex-row">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
-        <div className="pl-2 pt-3 flex-1">
+        <div className="pl-14 sm:pl-3 pt-3 w-5/6">
             <div className="flex flex-col space-y-5">
                 <div className="font-semibold text-5xl text-sky-700">
                     <h1>Manage Parties</h1>
                 </div>
-                <div className="flex flex-row space space-x-96">
-                    <div className="flex flex-row space-x-5">
-                        <div className="text-center flex">
-                            <input
-                                className="pl-5 border-sky-700 bg-white w-72 hover:bg-slate-300" 
-                                type="text" 
-                                name="key"
-                                onChange={(e) => setSearch(e.target.value)}
-                                placeholder=" Search Candidate"/>  
+                <div className="flex sm:flex-row  flex-col space-y-8 sm:space-x-96">
+                    <div className="flex sm:flex-row flex-col space-y-5 space-x-5">
+                        <div className="items-center flex">
+                            <div>
 
-                            <button 
-                                onClick={() => search(searchkey)}
-                                className=" px-2 rounded-r-2xl bg-slate-950 text-white hover:bg-slate-700 ">
-                                
-                                <MdSearch 
-                                    className="text-4xl"/>
-                            </button> 
+                                <input
+                                    className="pl-5 p-2 border-sky-700 bg-white w-72 hover:bg-slate-300" 
+                                    type="text" 
+                                    name="key"
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    placeholder=" Search Candidate"/>  
+                            </div>
+
+                            <div>
+
+                                <button 
+                                    onClick={() => search(searchkey)}
+                                    className=" px-2 rounded-r-2xl bg-slate-950 text-white hover:bg-slate-700 ">
+                                    
+                                    <MdSearch 
+                                        className="text-4xl"/>
+                                </button> 
+                            </div>
                         </div>
-                         
-                        <button
-                            onClick={(e) => reload()} 
-                            className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
-                            Reload
-                        </button>  
+                        <div>
+                            <button
+                                onClick={(e) => reload()} 
+                                className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
+                                Reload
+                            </button>  
+
+                        </div>
                     </div>  
                     <div>
                         <Link to={'/superAdmin/signupParty'}>
@@ -131,7 +139,7 @@ return(
                                 <td className="font-mono ">{found.repname}</td>
                                 <td><img 
                                     className="w-16 h-16"
-                                    src={found.logo} alt="" />
+                                    src={`http://localhost:8800/uploads/${found.logo}`} alt="" />
                                 </td>
                                 <td className="flex text-base space-x-6 mt-2">
                                     <Link to={'/superAdmin/manageSingleParty/'+ found._id}>
@@ -157,8 +165,8 @@ return(
                                 <td className="font-extrabold">{party.partyname} </td>
                                 <td className="font-mono ">{party.repname}</td>
                                 <td><img 
-                                    className="w-16 h-16"
-                                    src={party.logo} alt="" />
+                                    className="w-28 h-16"
+                                    src={`http://localhost:8800/uploads/${party.logo}`} alt="" />
                                 </td>
                                 <td className="flex text-base space-x-6 mt-2">
                                     <Link to={'/superAdmin/manageSingleParty/'+ party._id}>
@@ -172,7 +180,7 @@ return(
                                         </div>
                                     </Link>
 
-                                    <div onClick={() => handleDelete(party._id)}
+                                    <div onClick={() => handleDelete(party._id, party.partyname)}
                                         className="rounded-3xl px-3 py-1 text-white font-bold bg- bg-red-800 hover:bg-red-500 cursor-pointer"  >
                                         <MdDelete className="text-2xl" />
                                     </div>

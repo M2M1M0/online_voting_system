@@ -58,7 +58,7 @@ export default function RegStation(){
 return(
     <>
     <div className="flex flex-row h-screen">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
         <div className="pl-2 flex-1">
@@ -128,10 +128,10 @@ return(
 
                             </div>
                             <div className='flex flex-col gap-2 w-2/5 '>
-                                <label htmlFor="">Administrator <span className='text-3xl'></span></label>
+                                {/* <label htmlFor="">Administrator <span className='text-3xl'></span></label> */}
                                 <input 
                                     className="border-2 border-gray-300 rounded-md p-1 w-full" 
-                                    type="text"
+                                    type="hidden"
                                     name='admin'
                                     maxLength={18}
                                     minLength={18}

@@ -47,7 +47,7 @@ export default function UpdateParty(){
 return(
     <>
     <div className="flex flex-row h-screen">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
         <div className="pl-2 flex-1">

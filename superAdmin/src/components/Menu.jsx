@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import img from '../images/userdefault.png'
-import './menu.css'
 
 //ICONS
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -27,12 +26,12 @@ export default function Menu(){
 
 return(
     <>
-    <div className="h-screen bg-white text-gray-500 pr-3 border-r-2 border-gray-100">
+    <div className="h-screen bg-white text-stone-500 pr-3 border-r-2 border-gray-100 fixed w-32 sm:w-auto">
         <div className="flex flex-col ">
             <img 
                 className="mx-3 mt-6 h-20 w-20 rounded-full cursor-pointer"
                 src={img} alt="" />
-            <div className='flex pl-20'>
+            <div className='text-right pr-5'>
                 <span>{user ? user.fname : <>Super Admin</>}</span>
             </div>
             

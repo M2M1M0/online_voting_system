@@ -89,13 +89,13 @@ return(
         <div className="w-1/6">
                 <Menu />
             </div>
-        <div className="pl-2 pt-3 w-5/6">
+        <div className="sm:pl-2 pl-9 pt-3 w-5/6">
             <div className="flex flex-col h-screen">
                 <div className="h-16 w-full flex flex-col text-center bg-gray-950 text-white">
                     <h1 className='font-semibold text-base sm:text-2xl'>Register Now</h1>
                     <p className=''>National election board of ethiopia</p>
                 </div>
-                <div className="pl-10 pb-4 pt-2 sm:px-16 md:px-8 sm:py-8 overflow-scroll" >
+                <div className="overflow-scroll" >
                 
                     {error && 
                     <div className="bg-red-300 text-red-900 text-base p-3 m-5 w-full">
@@ -109,9 +109,9 @@ return(
                     </div>
 
                     }
-                    <form  onSubmit={e => handleSubmit(e)} className="px-8">
+                    <form  onSubmit={e => handleSubmit(e)} className="pl-5">
                         <div>
-                            <div className="flex flex-col gap-2 w-3/4 ">
+                            <div className="flex flex-col gap-2  ">
                                 <label htmlFor="">Full Name <span className='text-red-500 text-3xl'>*</span></label>
                                 <div className='flex  gap-3'>
                                     <div>
@@ -162,7 +162,7 @@ return(
                                 </div>
                             </div>
                             <div className="flex flex-wrap gap-3 w-full mt-3 items-center ">
-                                <div className='flex flex-col gap-2 w-2/5 '>
+                                <div className='flex flex-col gap-2 w-5/12 '>
                                     <label htmlFor="">Phone Number <span className='text-red-500 text-3xl'>*</span></label>
                                     <div className="flex">
                                         <b className="text-center flex p-2 bg-gray-300 rounded-l-md">+251 </b>
@@ -183,7 +183,7 @@ return(
 
                                 </div>
                             
-                                <div className='flex flex-col gap-2  w-2/5'>
+                                <div className='flex flex-col gap-2  w-5/12'>
                                     <label htmlFor="">Gender <span className='text-red-500 text-3xl'>*</span></label>
                                     <div className="space-x-6  flex flex-row">
                                         <div>
@@ -209,7 +209,7 @@ return(
                                     </div>
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Date of Birth <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -220,7 +220,7 @@ return(
                                         onChange={e => handleChange(e)}/>
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Email ( <span className="text-emerald-500 "> Optionl </span> )</label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -236,7 +236,7 @@ return(
 
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5 '>
+                                <div className='flex flex-col gap-2 w-5/12 '>
                                     <label htmlFor="">ID Number <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -255,7 +255,7 @@ return(
 
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                 <label htmlFor="">Password <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -273,7 +273,7 @@ return(
 
                                 </div>
 
-                                <div className="w-2/5">
+                                <div className="w-5/12">
                                     <input 
                                         type="hidden" 
                                         name="userRole"
@@ -281,7 +281,7 @@ return(
                                         onChange={e => handleChange(e)}/>
                                 </div>
 
-                                <div className='flex flex-col gap-2 w-2/5'>
+                                <div className='flex flex-col gap-2 w-5/12'>
                                     <label htmlFor="">Confirm Password <span className='text-red-500 text-3xl'>*</span></label>
                                     <input 
                                         className="border-2 border-gray-300 rounded-md p-1 w-full" 
@@ -306,7 +306,7 @@ return(
                                 className='px-5 py-1 rounded-l-3xl rounded-r bg-green-700 hover:bg-green-600 text-white'>
                                     SUBMIT
                             </button>
-                            <Link to="/admin/signupVoter">
+                            <Link to="/registrar/signupVoter">
                                 <button 
                                     onClick={(e) => {
                                         setFocused(false)
@@ -318,7 +318,7 @@ return(
                                 </button>
                             </Link>
                             <Link 
-                                to={'/admin'}
+                                to={'/registrar'}
                                 className='px-5 py-1 rounded-l rounded-r-3xl bg-slate-400 hover:bg-slate-500'>
                                 <button>
                                     CANCEL

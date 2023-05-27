@@ -55,7 +55,7 @@ function UpdateStation() {
     return ( 
     <>
     <div className="flex flex-row h-screen">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
         <div className="pl-2 flex-1">
@@ -171,7 +171,7 @@ function UpdateStation() {
                                             type="text" 
                                             value={station.admin}
                                             minLength={3}
-                                            name="username"
+                                            name="admin"
                                             onBlur={(e) => setFocused(true)}
                                             focused={focused.toString()}
                                             required

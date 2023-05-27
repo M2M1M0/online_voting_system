@@ -1,6 +1,8 @@
 import Menu from "../components/Menu";
-import  { MdPersonSearch } from 'react-icons/md'
+import  { MdSearch } from 'react-icons/md'
+
 import  { RxUpdate } from 'react-icons/rx'
+
 import  { TiUserDelete } from 'react-icons/ti'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
@@ -72,38 +74,45 @@ export default function ManageStations(){
 return(
     <>
     <div className="flex flex-row">
-        <div className="w-1/7">
+        <div className="w-1/6">
             <Menu />
         </div>
-        <div className="pl-2 pt-3 flex-1">
+        <div className="pl-14 sm:pl-3 pt-3 w-5/6">
             <div className="flex flex-col space-y-5">
                 <div className="font-semibold text-5xl text-sky-700">
                     <h1>Manage Stations</h1>
                 </div>
-                <div className="flex flex-row space space-x-96">
-                    <div className="flex flex-row space-x-5">
-                        <div className="text-center flex">
+                <div className="flex sm:flex-row  flex-col space-y-8 sm:space-x-96">
+                    <div className="flex sm:flex-row flex-col space-y-5 space-x-5">
+                        <div className="items-center flex">
+                            <div>
+
+                            </div>
                             <input
-                                className="pl-5 border-sky-700 bg-white w-72 hover:bg-slate-300" 
+                                className="pl-5 p-2 border-sky-700 bg-white w-72 hover:bg-slate-300" 
                                 type="text" 
                                 name="key"
                                 onChange={e => setSearch(e.target.value)}
                                 placeholder=" Search station/ by contact"/>  
+                            <div>
+                                <button     
+                                    onClick={() => search(searchkey)}
+                                    className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
+                                        
+                                    <MdSearch 
+                                        className="text-4xl"/>
+                                </button> 
 
-                            <button     
-                                onClick={() => search(searchkey)}
-                                className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
-                                    
-                                <MdPersonSearch 
-                                    className="text-4xl"/>
-                            </button> 
+                            </div>
                         </div>
-                         
-                        <button 
-                            onClick={(e) => reload()} 
-                            className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
-                            Reload
-                        </button>  
+                        <div>
+                            <button 
+                                onClick={(e) => reload()} 
+                                className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
+                                Reload
+                            </button>  
+                        
+                        </div>
                     </div>  
                     <div>
                         <Link to={'/superAdmin/regStation'}>

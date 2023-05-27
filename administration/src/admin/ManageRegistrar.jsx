@@ -80,36 +80,41 @@ return(
         <div className="w-1/6">
             <Menu />
         </div>
-        <div className="pl-2 pt-3 w-5/6">
+        <div className="pl-14 sm:pl-3 pt-3 w-5/6">
             <div className="flex flex-col space-y-5">
                 <div className="font-semibold text-5xl text-sky-700">
                     <h1>Manage Registrar</h1>
                 </div>
-                <div className="flex flex-row space space-x-96">
-                    <div className="flex flex-row space-x-5">
+                <div className="flex sm:flex-row  flex-col space-y-8 sm:space-x-96">
+                    <div className="flex sm:flex-row flex-col space-y-5 space-x-5">
                         
-                        <div className="text-center flex">
+                        <div className="items-center flex">
+                           <div>
                             <input
-                                className="pl-5 border-sky-700 bg-white w-72 hover:bg-slate-300" 
-                                type="text" 
-                                name="key"
-                                value={searchkey}
-                                onChange={e => setSearch(e.target.value)}
-                                placeholder=" Search by Name/Phone Number"/>  
+                                    className="pl-5 border-sky-700 bg-white w-72 hover:bg-slate-300" 
+                                    type="text" 
+                                    name="key"
+                                    value={searchkey}
+                                    onChange={e => setSearch(e.target.value)}
+                                    placeholder=" Search by Name/Phone Number"/>  
+                           </div>
 
-                            <button 
-                                onClick={() => search(searchkey)}
-                                className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
-                                <MdPersonSearch 
-                                    className="text-4xl"/>
-                            </button> 
+                            <div>
+                                <button 
+                                    onClick={() => search(searchkey)}
+                                    className=" px-2 rounded-r-2xl bg-slate-950 text-white ">
+                                    <MdPersonSearch 
+                                        className="text-4xl"/>
+                                </button> 
+                            </div>
                         </div>
-                         
-                        <button 
-                            onClick={(e) => reload()} 
-                            className="p-1 px-3 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
-                            Reload
-                        </button>  
+                        <div>
+                            <button 
+                                onClick={(e) => reload()} 
+                                className="py-2 px-5 border-neutral-600 bg-sky-300 text-lg font-mono rounded-2xl hover:bg-sky-400 hover:text-white">
+                                Reload
+                            </button>  
+                        </div>
                     </div>  
                     <div>
                         <Link to={'/admin/signupRegistrar'}>
@@ -122,7 +127,7 @@ return(
                     </div>
                 </div>
                 <div className="flex flex-col bg-slate-900">
-                <div className="mx-0 bg-white w-auto h-80 overflow-scroll ">
+                <div className="mx-0  bg-white w-auto h-80 overflow-scroll ">
                     <table className="table w-full mx-2 p-1 border-collapse border border-slate-900 text-left">
                         <thead>
                             <tr className="border text-white bg-slate-900">

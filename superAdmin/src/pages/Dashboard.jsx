@@ -10,12 +10,12 @@ import PersonPinIcon from '@mui/icons-material/PersonPin';
 import RoomIcon from '@mui/icons-material/Room';
 
 
-export default function Dashboard(){
+export default function Dashboard() {
 
-    const [ admins, setAdmins] = useState(0)
-    const [ parties, setParties] = useState(0)
-    const [ stations, setStations] = useState(0)
-    const [ voters, setVoters] = useState(0)
+    const [admins, setAdmins] = useState(0)
+    const [parties, setParties] = useState(0)
+    const [stations, setStations] = useState(0)
+    const [voters, setVoters] = useState(0)
 
     useEffect(() => {
         // COUNT All ADMINS
@@ -44,71 +44,70 @@ export default function Dashboard(){
 
     })
 
-return(
-    <>
-    <div className="flex flex-row">
-            <div className="w-1/7">
-                <Menu />
-            </div>
-            <div className="pl-2 pt-3 flex-1">
-                <div className="flex flex-col space-y-4">
-                    <div className="font-semibold text-5xl text-sky-700">
-                        <h1>Dashboard</h1>
-                    </div>
-                    <div className="flex flex-col bg-slate-900">
-                        <div className="p-4 grid grid-cols-4 space-x-3 ">                                   
-                            <div className="pl-2 pt-3 flex flex-col bg-sky-500  hover:bg-sky-400  h-28 relative cursor-pointer">
-                                <span className="text-gray">ADMINS</span>
-                                <h1 className="py-2 text-3xl font-semibold">{admins ? admins : <div className="text-red-700">-</div>}</h1>
-                                <span className="absolute top-0 right-0 p-2"> <SupervisorAccountIcon /> </span>
+    return (
+        <>
+            <div className="flex flex-row">
+                <div className="w-1/6">
+                    <Menu />
+                </div>
+                <div className="sm:pl-2 pl-12 pt-3 w-5/6">
+                    <div className="flex flex-col space-y-4">
+                        <div className="font-semibold text-5xl text-sky-700 mt-3">
+                            <h1>SuperAdmin Dashboard</h1>
+                        </div>
+
+                        <div className="flex flex-col flex-wrap w-auto  sm:mt-16 ">
+                            <div className="grid grid-cols-1  gap-8 mx-3 sm:grid-cols-4 mt-8">
+                                <div className="flex flex-col p-3 px-3 gap-5 h-28 border shadow-md relative">
+                                    <span className="font-extralight ">ADMINS</span>
+                                    <span className="text-3xl">{admins ? admins : <div className="text-red-700">-</div>}</span>
+                                    <span className="absolute bottom-3 right-5 p-1 bg-purple-300 rounded text-purple-700"><SupervisorAccountIcon /></span>
+                                </div>
+                                <div className="flex flex-col p-3 px-3 gap-3 border shadow-md relative">
+                                    <span className="font-extralight">Parties</span>
+                                    <span className="text-3xl">{parties ? parties : <div className="text-red-700">-</div>}</span>
+                                    <span className="absolute bottom-3 right-5 p-1 bg-purple-300 rounded text-emerald-700"><GroupsIcon /></span>
+                                </div>
+                                <div className="flex flex-col p-3 px-3 gap-3 border shadow-md relative">
+                                    <span className="font-extralight">Stations</span>
+                                    <span className="text-3xl">{stations ? stations : <div className="text-red-700">-</div>}</span>
+                                    <span className="absolute bottom-3 right-5 p-1 bg-purple-300 rounded text-sky-700"><RoomIcon /></span>
+                                </div>
+                                <div className="flex flex-col p-3 px-3 gap-3 border shadow-md relative">
+                                    <span className="font-extralight">Voters</span>
+                                    <span className="text-3xl">{voters ? voters : <div className="text-red-700">-</div>}</span>
+                                    <span className="absolute bottom-3 right-5 p-1 bg-purple-300 rounded text-stone-700"><PersonPinIcon /></span>
+                                </div>
+
                             </div>
 
-                            <div className="pl-2 pt-3 flex flex-col bg-emerald-500 hover:bg-emerald-400 relative cursor-pointer">
-                                <span className="text-gray">Parties</span>
-                                <h1 className="py-2 text-3xl font-semibold">{parties ? parties : <div className="text-red-700">-</div>}</h1>
-                                <span className="absolute top-0 right-0 p-2"> <GroupsIcon /> </span>
-                            </div>
-                            <div className="pl-2 pt-3 flex flex-col bg-stone-500 hover:bg-stone-400 relative cursor-pointer">
-                                <span className="text-gray">Stations</span>
-                                <h1 className="py-2 text-3xl font-semibold">{stations ? stations : <div className="text-red-700">-</div>}</h1>
-                                <span className="absolute top-0 right-0 p-2"> <RoomIcon /> </span>
-                            
-                            </div>
-                            <div className="pl-2 pt-3 flex flex-col bg-yellow-500 hover:bg-yellow-400 relative cursor-pointer">
-                                <span className="text-gray">Voters</span>
-                                <h1 className="py-2 text-3xl font-semibold">{voters ? voters : <div className="text-red-700">-</div>}</h1>
-                                <span className="absolute top-0 right-0 p-2"> <PersonPinIcon /> </span>
-                            
-                            </div> 
                         </div>
-                        <div className="text-right">
-                            <h1 className="text-white px-3 pb-2">#</h1>
-                        </div>
-                    </div>
-                    <div className="text-center ">
-                        <div className="space-y-16 space-x-24">
-                            <button className="px-3 py-2 rounded border-2 border-gray-400 hover:bg-gray-500 hover:text-white">
-                                <Link to={'/superAdmin/signupAdmin'}>
-                                    ADD ADMINS
-                                </Link>        
-                            </button>
-                            <button className="px-3 py-2 rounded border-2 border-sky-400 hover:bg-sky-500 hover:text-white">
+
+                        <div className="text-center ">
+                            <div className="flex sm:flex-row flex-col pl-5 gap-12 mt-24">
                                 <Link to={'/superAdmin/signupParty'}>
-                                    ADD PARTIES
+                                    <button className="px-3 py-2 rounded border-2 bg-sky-700 text-white hover:bg-white hover:text-sky-700 hover:border-sky-700">
+                                        ADD PARTY
+                                    </button>
                                 </Link>
-                            </button>
-                            <button className="px-3 py-2 rounded border-2 border-emerald-400 hover:bg-emerald-500 hover:text-white">
                                 <Link to={'/superAdmin/regStation'}>
-                                    ADD STATIONS
+                                    <button className="px-3 py-2 rounded border-2 bg-emerald-700 text-white hover:bg-white hover:text-emerald-700 hover:border-emerald-700">
+                                        ADD STATION
+                                    </button>
                                 </Link>
-                            </button>
+                                <Link to={'/superAdmin/signupAdmin'}>
+                                    <button className="px-3 py-2 rounded border-2 bg-purple-950 text-white hover:bg-white hover:text-purple-950 hover:border-purple-700">
+                                        ADD ADMIN
+                                    </button>
+                                </Link>
+
+                            </div>
                         </div>
-                    </div>
-                    <div className="">
-                        {/* <FOOTER /> */}
+
+                        <div className="footer"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </>
-)}
+        </>
+    )
+}

@@ -17,7 +17,7 @@ return(
             <div className='flex text-right sm:text-left sm:mt-20 mt-8'>
                 <Link to={'/login'}>
                     <button 
-                        className='rounded-2xl text-base font-sans sm:px-8 sm:py-3 px-5 py-2 bg-sky-950 text-white  hover:text-sky-950 hover:bg-white '>
+                        className='rounded-2xl text-base font-sans sm:px-8 sm:py-3 px-5 py-2 bg-sky-950 text-white  hover:text-sky-950 hover:bg-white hover:border-2 hover:border-sky-900'>
                             GET STARTED
                     </button>
                 </Link>
