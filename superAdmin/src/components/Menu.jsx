@@ -67,6 +67,13 @@ return(
                         <span>Report</span>
                     </li>
                 </Link>
+                <Link to={'/superAdmin/electionTime'}>     
+                    <li className="p-3 hover:bg-gray-200 hover:tracking-wide space-x-3">      
+                        {/* <span className="text-purple-800"><AssessmentIcon/></span> */}
+                        <span>Set Time</span>
+                    </li>
+                </Link>
+                
             </ul>
             <span 
                 onClick={() => logout()}

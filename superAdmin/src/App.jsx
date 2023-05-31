@@ -13,7 +13,6 @@ import ManageAdmins from "./pages/ManageAdmins";
 import ManageParties from "./pages/ManageParties";
 import SignupAdmin from "./pages/SignupAdmin";
 import SignupParty from "./pages/SignupParty";
-import Approvals from "./pages/Approval";
 import Reports from "./pages/Report";
 import RegStation from "./pages/RegStation";
 import UpdateParty from "./pages/UpdateParty";
@@ -26,6 +25,7 @@ import UpdateStation from "./pages/UpdateStation";
 // Index Pages
 import Login from "./pages/Login";
 import ForgetPassword from "./pages/ForgetPassword";
+import ElectionTime from "./pages/ElectionTime";
 
 
 // import { AuthContext } from "./context/authContext";
@@ -61,7 +61,7 @@ const App = () => {
           <Route path="/superAdmin/regStation" element={<RegStation />} />
           <Route path="/superAdmin/manageStations" element={<ManageStations />} />
           <Route path="/superAdmin/updateStation/:id" element={<UpdateStation />} />
-          <Route path="/superAdmin/approval" element={<Approvals />} />
+          <Route path="/superAdmin/electionTime" element={<ElectionTime />} />
           <Route path="/superAdmin/report" element={<Reports />} />
       
       

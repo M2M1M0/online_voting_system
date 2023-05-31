@@ -42,7 +42,7 @@ export default function CastVote() {
             setTimeout(() => {
                 setError(false)
                 navigate('/')
-            }, [3000])
+            }, [4000])
         }
 
 
@@ -86,7 +86,7 @@ export default function CastVote() {
 
                 <hr />
                 <br />
-                <div className="flex flex-wrap gap-8 w-auto justify-center">
+                {/* <div className="flex flex-wrap gap-8 w-auto justify-center">
                     {candidates.length ? candidates.map((candidates, index) => (
                         <div key={index} className='flex flex-col justify-between w-56 h-64 p-5 shadow-2xl bg-gray-200'>
                             <div className="items-center w-full">
@@ -105,9 +105,14 @@ export default function CastVote() {
                             </div>
                         </div>
                     )) : null}
-                </div>
+                </div> */}
                 <br />
                 <div className="w-full pt-8 grid place-items-center">
+                    {error &&
+                        <div className="bg-red-300 text-red-900 text-1xl p-3 m-2 w-2/3">
+                            {error}
+                        </div>
+                    }
                     <table className="table w-2/3 mx-2 p-1 border-collapse border border-slate-900 text-left">
                         <thead>
                             <tr className="border text-white bg-slate-900">
@@ -145,11 +150,7 @@ export default function CastVote() {
                         </tbody>
                     </table>
 
-                    {error &&
-                        <div className="bg-red-300 text-red-900 text-1xl p-3 m-2 w-2/3">
-                            {error}
-                        </div>
-                    }
+
                 </div>
             </div>
         </>

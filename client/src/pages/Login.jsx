@@ -3,14 +3,17 @@ import { useContext,    useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/authContext"
 import logo from '../images/nebe-logo.png'
+import moment from "moment"
 
 import evoting from '../images/e-voting.png'
 import Flag_of_Ethiopia from '../images/Flag_of_Ethiopia.png'
 
 import '../login.css'
+import { useEffect } from "react"
 
 export default function Login() {
     
+    const [ getTime, setElection ] = useState("")    
     const { loading, error, dispatch } = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -32,15 +35,41 @@ export default function Login() {
             console.log(res.data, "response")
             // console.log(res.data.station, "station")
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
-            navigate(`/voter/station/${res.data.stationId}`)
-            
+
+            // start time Sun May 28 2023 20:44:00 GMT+0300
+            // current time 
+        
+            const start = moment(Date.now()).diff(getTime.startDate)
+            const end = moment(Date.now()).diff(getTime.endDate)
+
+            if(start < 0){
+                alert("Wait till the election open!")
+            } else if(end > 0){
+                alert("The Election is Closed!")
+            } else{
+                navigate(`/voter/station/${res.data.stationId}`)
+            }
                 
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE", payload: err.response.data })
         }
     }
-    
 
+// console.log(Date.now(), "current")
+// console.log(getTime.startDate, "start")
+
+    useEffect(() => {
+        //getElectionTime
+
+        axios.get("http://localhost:8800/time/getElectionTime")
+            .then((time) => {
+                setElection(time.data[0])
+                // console.log(time)
+            })
+            .catch((err) => console.log(err))
+
+
+    })
 
    
     return(
