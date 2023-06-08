@@ -112,7 +112,7 @@ return(
                         </div>
                     </div>  
                     <div>
-                        <Link to={'/admin/signupVoter'}>
+                        <Link to={'/registrar/signupVoter'}>
                             <button 
                                 className="px-8 py-3 bg-emerald-600 hover:bg-emerald-400 text-white"> 
                                 Add Voter 

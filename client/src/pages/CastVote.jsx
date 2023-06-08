@@ -53,23 +53,35 @@ export default function CastVote() {
 
     useEffect(() => {
 
-        //Get Station Name
-        axios.get("http://localhost:8800/station/" + stationid)
+    //Get Station Name
+    const fetchStation = async () => {
+        console.log(stationid, "StationId")
+
+
+        await axios.get("http://localhost:8800/station/" + stationid)
             .then(response => {
-                // console.log(response.data[0].stationname, "res") 
-                setStation(response.data[0].stationname)
+                console.log(response.data[0].stationname, "res") 
+                setStation(response.data[0]?.stationname)
             })
+        }
+        fetchStation()
+
+    })
+
+    useEffect(() => {
+        console.log(station, "Station")
+
         // Get This station Candidates
         axios.get("http://localhost:8800/vote/candidates/" + station)
             .then(response => {
-                // console.log(response.data) 
+                // console.log(response.data, "station") 
                 setCandidates(response.data)
             })
             .catch(error => {
                 console.log(error.message)
             })
 
-    })
+    },[station])
 
 
     return (
@@ -86,26 +98,7 @@ export default function CastVote() {
 
                 <hr />
                 <br />
-                {/* <div className="flex flex-wrap gap-8 w-auto justify-center">
-                    {candidates.length ? candidates.map((candidates, index) => (
-                        <div key={index} className='flex flex-col justify-between w-56 h-64 p-5 shadow-2xl bg-gray-200'>
-                            <div className="items-center w-full">
-                                <img className=" h-20 w-full px-3 shadow rounded" src={`http://localhost:8800/uploads/${candidates.logo}`} alt="" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <h1 className='font-extrabold text-2xl'>{(candidates.partyname)}</h1>
-                                <h1>{candidates.repname}</h1>
-                            </div>
-                            <div
-                                onClick={() => {
-                                    giveVote(candidates._id)
-                                }}
-                            >
-                                <button className=' text-white font-bold cursor-pointer rounded px-5 py-1 bg-purple-800 hover:bg-purple-600'>Vote</button>
-                            </div>
-                        </div>
-                    )) : null}
-                </div> */}
+                
                 <br />
                 <div className="w-full pt-8 grid place-items-center">
                     {error &&
@@ -149,8 +142,6 @@ export default function CastVote() {
                             )) : null}
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </>

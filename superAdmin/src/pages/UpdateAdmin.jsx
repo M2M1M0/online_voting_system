@@ -23,12 +23,13 @@ export default function UpdateAdmin(){
     
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(admin, "Updated")
         try{
             // Update Admin Info
             await axios.put("http://localhost:8800/admin/" + id, admin)
-                .then(() => {
-                    setSuccess("Update Success")
-            }).catch(err => setError(err.message))
+                .then((res) => console.log(res, "response"))
+            
+            setSuccess("Update Success")
         } catch(err){
             console.log(err)
             setError(err.message)
@@ -49,7 +50,7 @@ export default function UpdateAdmin(){
                 setError(error.message)
                 console.log(error.message)
             })
-    })
+    }, [id])
 
 return(
     <>
@@ -90,8 +91,8 @@ return(
                                 <input 
                                     className="border-2 border-gray-300 rounded-md p-1 w-full"  
                                     type="text"
-                                    value={admin.fname}
                                     name='fname'
+                                    value={admin.fname}
                                     required
                                     onBlur={(e) => setFocused(true) }
                                     focused={focused.toString()}
@@ -105,8 +106,8 @@ return(
                                 <input 
                                     className="border-2 border-gray-300 rounded-md p-1 w-full"  
                                     type="text"
-                                    value={admin.midname}
                                     name='midname'
+                                    value={admin.midname}
                                     required
                                     onBlur={(e) => setFocused(true) }
                                     focused={focused.toString()}
@@ -119,8 +120,8 @@ return(
                                 <input 
                                     className="border-2 border-gray-300 rounded-md p-1 w-full"  
                                     type="text"
-                                    value={admin.lname}
                                     name='lname'
+                                    value={admin.lname}
                                     required
                                     onBlur={(e) => setFocused(true) }
                                     focused={focused.toString()}
@@ -138,8 +139,8 @@ return(
                                         type="text" 
                                         maxLength={9}
                                         minLength={9}
-                                        value={admin.phone}
                                         name='phone'
+                                        value={admin.phone}
                                         onBlur={(e) => setFocused(true)}
                                         focused={focused.toString()}
                                         pattern="^[7,9][0-9]+$"
@@ -154,8 +155,8 @@ return(
                                     className="border-2 border-gray-300 rounded-md p-1 w-full" 
                                     type="email" 
                                     placeholder='example@gmail.com'
-                                    value={admin.email}
                                     name='email'
+                                    value={admin.email}
                                     onBlur={(e) => setFocused(true)}
                                     focused={focused.toString()}
                                     pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
@@ -168,12 +169,12 @@ return(
                                 <button 
                                     onClick={e => handleSubmit(e)}
                                     type="submit"
-                                    className='px-5 py-1 rounded-l-3xl rounded-r bg-green-700 hover:bg-green-600 text-white'>
+                                    className='px-5 py-1 rounded-l-3xl rounded-r hover:bg-emerald-700 bg-white hover:text-white border border-emerald-600 hover'>
                                         Update
                                 </button>
                                
                                 <button 
-                                    className='px-5 py-1 rounded-l rounded-r-3xl bg-slate-400 hover:bg-slate-500'>
+                                    className='px-5 py-1 rounded-l rounded-r-3xl hover:bg-stone-700 bg-white hover:text-white border border-stone-600 hover'>
                                     <Link to={'/superAdmin'}>
                                         CANCEL
                                     </Link>

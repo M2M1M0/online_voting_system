@@ -353,7 +353,7 @@ export default function SignupAdmin() {
                                             <span className="span">Password don't match</span>
 
                                         </div>
-                                        
+
 
                                     </div>
                                 </div>
@@ -361,33 +361,33 @@ export default function SignupAdmin() {
                                 <div className='flex flex-row text-center gap-1 sm:gap-3 py-8 pl-3'>
                                     <button
                                         type="submit"
-                                        className='px-5 py-1 rounded-l-3xl rounded-r bg-green-700 hover:bg-green-600 text-white'>
+                                        className='px-5 py-1 rounded-l-3xl rounded-r hover:bg-emerald-700 bg-white hover:text-white border border-emerald-600 hover'>
                                         SUBMIT
                                     </button>
-                                    <Link to={"/superAdmin/signupAdmin"}>
-                                        <button
-                                            onClick={(e) => {
-                                                setAdmin(initialState)
-                                                setFocused(false)
-                                            }}
-                                            className='px-5 py-1 rounded-l rounded-r hover:border-2'>
-                                            RESET
-                                        </button>
-                                    </Link>
-                                    <Link
-                                        to={'/superAdmin'}
-                                        className='px-5 py-1 rounded-l rounded-r-3xl bg-slate-400 hover:bg-slate-500'>
-                                        <button>
-                                            CANCEL
-                                        </button>
-                                    </Link>
-                                </div>
-                            </form>
-
+                                <Link to={"/superAdmin/signupAdmin"}>
+                                    <button
+                                        onClick={(e) => {
+                                            setAdmin(initialState)
+                                            setFocused(false)
+                                        }}
+                                        className='px-5 py-1 rounded-l rounded-r hover:bg-sky-500 bg-white hover:text-white border border-sky-500 hover'>
+                                        RESET
+                                    </button>
+                                </Link>
+                                <Link
+                                    to={'/superAdmin'}
+                                    className='px-5 py-1 rounded-l rounded-r-3xl hover:bg-stone-700 bg-white hover:text-white border border-sstone-600 hover'>
+                                    <button>
+                                        CANCEL
+                                    </button>
+                                </Link>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
+        </div>
+            </div >
         </>
     )
 }

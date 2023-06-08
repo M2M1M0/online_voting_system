@@ -28,19 +28,19 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ElectionTime from "./pages/ElectionTime";
 
 
-// import { AuthContext } from "./context/authContext";
-// import { useContext } from "react";
+import { AuthContext } from "./context/authContext";
+import { useContext } from "react";
 
 const App = () => {
   
-  // const ProtectedRoute = ({children}) => {
-  //   const { user } = useContext(AuthContext)
-  //   if(user && user?.userRole === "superadmin"){
-  //     return children
-  //   } else {
-  //     return <Navigate to={'/login'} />
-  //   }
-  // }
+  const ProtectedRoute = ({children}) => {
+    const { user } = useContext(AuthContext)
+    if(user && user?.userRole === "superadmin"){
+      return children
+    } else {
+      return <Navigate to={'/login'} />
+    }
+  }
  
     return (
     <>
@@ -50,19 +50,19 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/forgetPassword" element={<ForgetPassword />} />
       
-          <Route path="/superAdmin" element={<SuperAdminDashboard/>}/>
-          <Route path="/superAdmin/signupAdmin" element={<SignupAdmin />} />
-          <Route path="/superAdmin/updateAdmin/:id" element={<UpdateAdmin />} />
-          <Route path="/superAdmin/signupParty" element={<SignupParty />} />
-          <Route path="/superAdmin/updateParty/:id" element={<UpdateParty />} />
-          <Route path="/superAdmin/manageAdmins" element={<ManageAdmins />} />
-          <Route path="/superAdmin/manageSingleParty/:id" element={<ManageSingleParty />} />
-          <Route path="/superAdmin/manageParties" element={<ManageParties />} />
-          <Route path="/superAdmin/regStation" element={<RegStation />} />
-          <Route path="/superAdmin/manageStations" element={<ManageStations />} />
-          <Route path="/superAdmin/updateStation/:id" element={<UpdateStation />} />
-          <Route path="/superAdmin/electionTime" element={<ElectionTime />} />
-          <Route path="/superAdmin/report" element={<Reports />} />
+          <Route path="/superAdmin" element={<ProtectedRoute><SuperAdminDashboard/></ProtectedRoute>}/>
+          <Route path="/superAdmin/signupAdmin" element={<ProtectedRoute><SignupAdmin /></ProtectedRoute>} />
+          <Route path="/superAdmin/updateAdmin/:id" element={<ProtectedRoute><UpdateAdmin /></ProtectedRoute>} />
+          <Route path="/superAdmin/signupParty" element={<ProtectedRoute><SignupParty /></ProtectedRoute>} />
+          <Route path="/superAdmin/updateParty/:id" element={<ProtectedRoute><UpdateParty /></ProtectedRoute>} />
+          <Route path="/superAdmin/manageAdmins" element={<ProtectedRoute><ManageAdmins /></ProtectedRoute>} />
+          <Route path="/superAdmin/manageSingleParty/:id" element={<ProtectedRoute><ManageSingleParty /></ProtectedRoute>} />
+          <Route path="/superAdmin/manageParties" element={<ProtectedRoute><ManageParties /></ProtectedRoute>} />
+          <Route path="/superAdmin/regStation" element={<ProtectedRoute><RegStation /></ProtectedRoute>} />
+          <Route path="/superAdmin/manageStations" element={<ProtectedRoute><ManageStations /></ProtectedRoute>} />
+          <Route path="/superAdmin/updateStation/:id" element={<ProtectedRoute><UpdateStation /></ProtectedRoute>} />
+          <Route path="/superAdmin/electionTime" element={<ProtectedRoute><ElectionTime /></ProtectedRoute>} />
+          <Route path="/superAdmin/report" element={<ProtectedRoute><Reports /></ProtectedRoute>} />
       
       
           <Route path="*" element={<Navigate to="/login" />} /> 

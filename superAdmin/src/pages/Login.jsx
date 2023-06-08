@@ -27,20 +27,27 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
             dispatch({ type: "LOGIN_START" })
-            navigate('/superAdmin')
 
-        // try {
-        //     const res = await axios.post("http://localhost:8800/auth/login", credentials)
-        //     console.log(res.data, "response")
-        //     console.log(station, "station")
-        //     dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
-        
-        //     navigate('/superAdmin')
+        try {
+            const res = await axios.post("http://localhost:8800/auth/login", credentials)
+            console.log(res.data, "response")
             
+            dispatch({ type: "LOGIN_SUCCESS", payload: res.data })
 
-        // } catch (err) {
-        //     dispatch({ type: "LOGIN_FAILURE", payload: err.response.data })
-        // }
+            if(res.data.userRole === "superadmin"){
+                navigate(`/superAdmin`)
+                
+            }else if(res.data.userRole)
+            {
+                dispatch({ type: "LOGIN_FAILURE"})
+                alert("You are not Allowed Here!!!")
+            } else {
+                navigate("/")
+            }
+        
+        } catch (err) {
+            dispatch({ type: "LOGIN_FAILURE", payload: err.response.data })
+        }
     }
     
 
@@ -76,7 +83,7 @@ export default function Login() {
                                 className="text-black p-2 px-3 rounded placeholder:text-slate-500 bg-purple-300 mx-2"
                                 type="text"
                                 name="username"
-                                placeholder="Enter Username / Resident ID no." 
+                                placeholder="Enter Username " 
                                 onChange={handleChange}/>
                         </div>
                         <div className="flex flex-col space-y-2">
@@ -88,9 +95,9 @@ export default function Login() {
                                 placeholder="Enter Password" 
                                 onChange={handleChange}/>
                             <div className="text-sky-600 mx-3">
-                                <Link to={'/forgetPassword'}>
+                                {/* <Link to={'/forgetPassword'}>
                                     forget password ?
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <div className="grid place-items-end pr-8">

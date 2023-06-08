@@ -118,18 +118,17 @@ return(
                                 </textarea> 
                             </div>
                             
-                            
-
+                        
                             <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 text-center gap-1 sm:gap-3  text-black  py-5'>
                                 <button 
-                                    className='px-5 py-1 rounded-l-3xl rounded-r bg-green-700 hover:bg-green-600 text-white'
+                                    className='px-5 py-1 rounded-l-3xl rounded-r hover:bg-emerald-700 bg-white hover:text-white border border-emerald-600 hover'
                                     onClick={e => handleSubmit(e)}>
                                     <Link >
                                         Update
                                     </Link>
                                 </button>
                                 <Link
-                                    className='px-5 py-1 rounded-l rounded-r-3xl bg-slate-400 hover:bg-slate-500' 
+                                    className='px-5 py-1 rounded-l rounded-r-3xl hover:bg-stone-700 bg-white hover:text-white border border-stone-600 hover'
                                     to={'/superAdmin'}>
                                     <button >
                                             CANCEL

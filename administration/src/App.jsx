@@ -24,6 +24,7 @@ import ManageVoter from "./registrar/ManageVoter";
 
 // Index Pages
 import Login from "./Login";
+import ChangeImage from "./admin/ChangeImage";
 // import ForgetPassword from "./admin/ForgetPassword";
 
 
@@ -57,8 +58,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
       
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute> } />
-          {/* <Route path="/registrar" element={<RegistrarRoute> <RegistrarDashboard /> </RegistrarRoute>} /> */}
+          <Route path="/admin/changeImage" element={ <ChangeImage />  } />
          
+
           <Route path="/admin/signupRegistrar" element={<AdminRoute><SignupRegistrar /></AdminRoute> } />
           <Route path="/admin/updateRegistrar/:id" element={<AdminRoute><UpdateRegistrar /></AdminRoute> } />
           <Route path="/admin/manageRegistrar" element={<AdminRoute><ManageRegistrar /></AdminRoute>} />

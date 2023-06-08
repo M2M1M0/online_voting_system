@@ -97,9 +97,9 @@ export default function Login() {
                                 placeholder="Enter Password" 
                                 onChange={handleChange}/>
                             <div className="text-sky-600 mx-3">
-                                <Link to={'forgetPassword'}>
+                                {/* <Link to={'forgetPassword'}>
                                     forget password ?
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <div className="grid place-items-end pr-8">

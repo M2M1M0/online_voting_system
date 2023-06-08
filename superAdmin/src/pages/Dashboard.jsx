@@ -86,17 +86,17 @@ export default function Dashboard() {
                         <div className="text-center ">
                             <div className="flex sm:flex-row flex-col pl-5 gap-12 mt-24">
                                 <Link to={'/superAdmin/signupParty'}>
-                                    <button className="px-3 py-2 rounded border-2 bg-sky-700 text-white hover:bg-white hover:text-sky-700 hover:border-sky-700">
+                                    <button className="px-3 py-2 rounded border-2 hover:bg-sky-700 hover:text-white bg-white text-sky-700 border-sky-700">
                                         ADD PARTY
                                     </button>
                                 </Link>
                                 <Link to={'/superAdmin/regStation'}>
-                                    <button className="px-3 py-2 rounded border-2 bg-emerald-700 text-white hover:bg-white hover:text-emerald-700 hover:border-emerald-700">
+                                    <button className="px-3 py-2 rounded border-2 hover:bg-emerald-700 hover:text-white bg-white text-emerald-700 border-emerald-700">
                                         ADD STATION
                                     </button>
                                 </Link>
                                 <Link to={'/superAdmin/signupAdmin'}>
-                                    <button className="px-3 py-2 rounded border-2 bg-purple-950 text-white hover:bg-white hover:text-purple-950 hover:border-purple-700">
+                                    <button className="px-3 py-2 rounded border-2 hover:bg-purple-950 hover:text-white bg-white text-purple-950 border-purple-700">
                                         ADD ADMIN
                                     </button>
                                 </Link>

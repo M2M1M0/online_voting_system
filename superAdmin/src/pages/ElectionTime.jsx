@@ -8,19 +8,12 @@ import axios from "axios"
 
 export default function ElectionTime() {
 
-    // const now =  Date.now()
-    // date.format(now, "YYYY/MM/DD HH:mm:ss")
-    // const now = moment(Date.now())
 
     const [start, setStart] = useState("")
     const [end, setEnd] = useState("")
 
 
     const [getTime, setElection] = useState("")
-
-    // const startDate = moment(start)
-    // const endDate = moment(end)
-    // const difference = moment(endDate).diff(startDate)
 
     const [success, setSuccess] = useState(false)
 
@@ -65,6 +58,13 @@ export default function ElectionTime() {
                 </div>
                 <div className="pl-2 pt-3 w-4/5">
                     <h1 className="text-center text-lg">Set Election Time</h1>
+                    {/* Current system time */}
+                    <h2 className="text-right">
+                        <Moment> 
+                            {Date.now()} 
+                        </Moment>
+                    </h2>
+                   
                     <div className="flex flex-col space-y-2">
                         <h1 className="text-4xl font-extrabold text-gray-900">Election Time</h1>
 
@@ -85,12 +85,7 @@ export default function ElectionTime() {
                             <Moment>
                                 {getTime.endDate}
                             </Moment>
-                            <h2 className="font-semibold text-gray-800 text-2xl">
-                                Current :
-                            </h2>
-                            <Moment>
-                                {Date.now()}
-                            </Moment>
+                           
                         </div>
 
                     </div>
