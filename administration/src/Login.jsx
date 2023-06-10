@@ -64,7 +64,7 @@ export default function Login() {
             <img src={Flag_of_Ethiopia} alt="" className='w-24 h-12'/>
 
         </div>
-        <div className="flex sm:flex-row gap-8 flex-col-reverse h-auto w-auto rounded border shadow-2xl p-8 pb-0 ">
+        <div className="flex sm:flex-row gap-8 flex-col-reverse h-auto w-auto rounded border shadow-2xl p-8 pb-0">
             <div className="sm:w-1/2 w-full flex place-items-center">
                 <img src={logo} alt="Oops" className="w-full sm:pr-16 p-0"/>
             </div>

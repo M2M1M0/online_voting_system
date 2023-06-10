@@ -41,7 +41,7 @@ export default function ManageStations(){
     }
 
     const handleDelete = async (id) => {
-        if(window.confirm("Are you sure! you want to delete this Admin?")){
+        if(window.confirm("Are you sure! you want to delete this Station?")){
             // Remove station
             try{
                 await axios.delete(`http://localhost:8800/station/${id}`)

@@ -164,11 +164,11 @@ return(
                                     <td>{user.phone}</td>
                                     <td>{user.stationname}</td>
                                     <td className="flex text-base space-x-6 mt-2">
-                                        <Link to={`/superAdmin/updateAdmin/${user._id}`}>
+                                        {/* <Link to={`/superAdmin/updateAdmin/${user._id}`}>
                                             <div className="rounded-3xl px-3 py-1 text-white font-bold bg-amber-600 hover:bg-amber-400 cursor-pointer">
                                                 <RxUpdate className="text-2xl"/>
                                             </div>
-                                        </Link>
+                                        </Link> */}
     
                                         <div onClick={() => handleDelete(user._id, user.stationId)}
                                             className="rounded-3xl px-3 py-1 text-white font-bold bg- bg-red-800 hover:bg-red-500 cursor-pointer"  >

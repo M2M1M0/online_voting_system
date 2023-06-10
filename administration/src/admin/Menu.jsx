@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 // import  { IoMdArrowDropdown } from 'react-icons/io'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../context/authContext'
 import defaultImg from '../images/userdefault.png'
 
@@ -21,24 +21,46 @@ export default function Menu() {
         }
     }
 
+    const [ open, setOpen ] = useState(false)
 
     return (
         <>
             <div className="h-screen bg-white text-gray-600 pr-3 border-r-2 border-gray-100 fixed w-32 sm:w-auto">
                 <div className="flex flex-col">
-                    <Link to={'/admin/changeImage'}>
+                    <div className='flex flex-col relative'>
+
                         <img
-                            className="mx-8 mt-6 h-20 w-20 rounded-full cursor-pointer "
+                            className="mx-8 mt-6 h-24 w-24 rounded-full"
                             src={
                                 user.image
-                                    ? `http://localhost:8800/uploads/${user.image}`
-                                    : defaultImg
+                                    ? `http://localhost:8800/uploads/${user.image}` :
+                                    defaultImg
                             }
-                            alt=""
+                            alt="Image"
                         />
-                    </Link>
-                    <div className='text-right pr-5'>
-                        <span>{user.username}</span>
+                        <button
+                            onClick={() => setOpen(!open)}
+                            className='absolute right-12 bottom-4 text-3xl cursor-pointer'>
+                            <AssessmentIcon />
+                        </button>
+
+                        <div className={`absolute -right-6 -bottom-16 p-3 rounded-lg bg-slate-950  ${open ? "block" : "hidden"}`}>
+                            <ul className='flex flex-col text-white gap-2'>
+
+                                <Link to={'/admin/updateInfo'}>
+                                    <li className='hover:bg-slate-900 px-2'>Personal Info</li>
+                                </Link>
+
+                                <Link to={'/admin/updateProfileImage'}>
+                                    <li className='hover:bg-slate-900 px-2'>Profile Picture</li>
+                                </Link>
+
+                            </ul>
+                        </div>
+
+                        <div className='text-right w-full pr-8'>
+                            <span>{user.username}</span>
+                        </div>
                     </div>
 
                     <ul className="py-8 space-y-0 mt-4 ">

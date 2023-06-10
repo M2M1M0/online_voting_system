@@ -95,6 +95,7 @@ return(
                     <h1 className='font-semibold text-base sm:text-2xl'>Register Now</h1>
                     <p className=''>National election board of ethiopia</p>
                 </div>
+                <br />
                 <div className="overflow-scroll" >
                 
                     {error && 

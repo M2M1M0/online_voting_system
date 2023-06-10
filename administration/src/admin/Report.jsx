@@ -271,7 +271,13 @@ export default function Report() {
                         </div>
                         
                         {/* Footer */}
+
                         <div className="text-center items-center justify-center space-y-1 absolute bottom-5 left-0 right-0">
+                            <div className="text-lg font-extrabold  text-gray-700 flex flex-col pl-5 text-justify py-3">
+                                <span>{user.fname} {user.midname} {user.lname}</span>
+                                <span className="mt-2">Signature ________________________</span>
+                                <span>Date: {Date.now()}</span>
+                            </div>
                             <p>National Election Board of Ethiopia</p>
                             <p>July, 2024</p>
                             <p>Addis Ababa</p>

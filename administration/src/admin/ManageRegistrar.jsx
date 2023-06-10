@@ -148,11 +148,11 @@ export default function ManageRegistrar() {
                                                 <td>{found.phone}</td>
                                                 <td>{found.email}</td>
                                                 <td className="flex text-base space-x-6 mt-2">
-                                                    <Link to={`/admin/updateregistrar/${found._id}`}>
+                                                    {/* <Link to={`/admin/updateregistrar/${found._id}`}>
                                                         <div className="rounded-3xl px-3 py-1 text-white font-bold bg-amber-600 hover:bg-amber-400 cursor-pointer">
                                                             <RxUpdate className="text-2xl" />
                                                         </div>
-                                                    </Link>
+                                                    </Link> */}
 
                                                     <div onClick={() => {
                                                         handleDelete(found._id)

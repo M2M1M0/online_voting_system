@@ -25,28 +25,21 @@ export default function Dashboard(){
         // Get Station
         axios.get(`http://localhost:8800/station/${stationid}`)
             .then((res) => 
-            {
-                // console.log(res.data[0].stationname, "res")
                 setStation(res.data[0].stationname)
-            }
             ).catch((err) => console.log(err))
 
         // COUNT Registrar @... Station
         axios.get(`http://localhost:8800/registrar/@/${stationid}`)
-        .then((res) => 
-        {
-            setRegistrar(res.request.response.split(":")[1].split("}")[0])
-        }
-        )
-        .catch((err) => console.log(err))
+            .then((res) => 
+                setRegistrar(res.request.response.split(":")[1].split("}")[0])
+            )
+            .catch((err) => console.log(err))
 
 
         // COUNT PARTIES @... Station
-        axios.get(`http://localhost:8800/registrar/@/${stationid}`)
+        axios.get(`http://localhost:8800/party/@/${station}`)
             .then((res) => 
-            {
                 setParties(res.request.response.split(":")[1].split("}")[0])
-            }
             )
             .catch((err) => console.log(err))
 
@@ -102,12 +95,12 @@ return(
                         <div className="sm:space-y-24 space-y-5 space-x-24">
                             <button className="px-3 py-2 rounded border-2  bg-purple-950 text-white hover:bg-white hover:text-purple-950 hover:border-purple-700">
                                 <Link to={'/admin/signupRegistrar'}>
-                                    Add Registrar
+                                    Add registrar
                                 </Link>        
                             </button>
                             <button className="px-3 py-2 rounded border-2  bg-emerald-950 text-white hover:bg-white hover:text-emerald-950 hover:border-emerald-700">
                                 <Link to={'/admin/report'}>
-                                    REPORT
+                                    report
                                 </Link>
                             </button>
                             
