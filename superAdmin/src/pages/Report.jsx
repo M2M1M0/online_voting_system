@@ -8,10 +8,16 @@ import { useRef } from "react";
 import { Line } from "rc-progress"
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+// import {format}  from 'date-format'
+
+var format = require('date-format');
 
 
 
 export default function Report() {
+
+    format.asString(); // defaults to ISO8601 format and current date
+    format.asString(new Date());
 
     const { user } = useContext(AuthContext)
     
@@ -180,23 +186,23 @@ export default function Report() {
 
                         {/* Main Report */}
                         <div className="flex flex-col">
-                            <h1 className="text-2xl">
-                                Polling and Results
+                            <h1 className="text-3xl font-extrabold">
+                                ********* POLLING and RESULTS **********
                             </h1>
 
                             <div className="flex items-center space-x-2">
-                                <h1 className="">Total Registered Voters</h1>
-                                <span className="text-2xl text-extrabold">{voters}</span>
+                                <h1 className="">**Total Registered Voters:**</h1>
+                                <span className="text-1xl text-extrabold">{voters}</span>
                             </div>
                             <div className="flex items-center space-x-2">
-                                <h1 className="">Voters who Cast thier votes</h1>
-                                <span className="text-2xl text-extrabold">{votes}</span>
+                                <h1 className="">**Voters who Cast thier votes:**</h1>
+                                <span className="text-1xl text-extrabold">{votes}</span>
                             </div>
                             <div className="flex items-center space-x-2">
-                                <h1 className="">Voters who did not vote</h1>
-                                <span className="text-2xl text-extrabold ">{voters - votes}</span>
+                                <h1 className="">**Voters who did not vote:**</h1>
+                                <span className="text-1xl text-extrabold ">{voters - votes}</span>
                             </div>
-                            <br /><hr /><br />
+                            <br /><hr />
                             {/* Parties and thier votes */}
                             <table className="table divide-y divide-gray-600 w-3/4 border-collapse border border-slate-900 text-left my-8">
                                 <thead>
@@ -209,11 +215,11 @@ export default function Report() {
                                 </thead>
                                 <tbody>
                                     {CastdParty.map((party, index) => (
-                                        <tr key={index} className="text-2xl border">
-                                            <td className="border border-gray-500 p-3">{index + 1}</td>
-                                            <td className="border border-gray-500 p-3">{party.partyname}</td>
-                                            <td className="border border-gray-500 p-3">{party.votes_count}</td>
-                                            <td className="border border-gray-500 p-3">
+                                        <tr key={index} className="text-base border">
+                                            <td className="border border-gray-500 p-1 pl-3">{index + 1}</td>
+                                            <td className="border border-gray-500 p-1 pl-3">{party.partyname}</td>
+                                            <td className="border border-gray-500 p-1 pl-3">{party.votes_count}</td>
+                                            <td className="border border-gray-500 p-1 pl-3">
                                                 {((party.votes_count) / (votes)).toFixed(2) * 100} %
 
                                             </td>
@@ -266,8 +272,8 @@ export default function Report() {
                         <div className="text-center items-center justify-center space-y-1 absolute bottom-5 left-0 right-0">
                             <div className="text-lg font-extrabold  text-gray-700 flex flex-col pl-5 text-justify py-3">
                                 <span>{user.fname} {user.midname} {user.lname}</span>
-                                <span className="mt-2">Signature ________________________</span>
                                 <span>Date: {Date.now()}</span>
+                                <span className="my-1.5">Signature _________________</span>
                             </div>
                             <p>National Election Board of Ethiopia</p>
                             <p>July, 2024</p>

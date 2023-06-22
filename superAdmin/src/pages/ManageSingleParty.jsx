@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Menu from "../components/Menu";
 import { TiUserDelete } from 'react-icons/ti'
-import img from '../images/ndp.jpg'
 
 function ManageSingleParty() {
 

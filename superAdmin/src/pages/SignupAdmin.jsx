@@ -66,7 +66,7 @@ export default function SignupAdmin() {
             }
         }
 
-        if (admin.stationid == 0) {
+        if (admin.stationid === 0) {
             alert("Please Select Station!")
         } else {
             try {
@@ -329,7 +329,7 @@ export default function SignupAdmin() {
                                                 onChange={e => handleChange(e)}
                                                 required
                                                 className="border-2 border-gray-300 rounded-md p-1 w-full bg-white" >
-                                                <option value="0" ></option>
+                                                <option value={0} ></option>
                                                 {stations && stations.map((station, index) => (
                                                     <option key={index} value={station._id}>
                                                         {station.stationname}

@@ -10,8 +10,7 @@ import '../login.css'
 
 export default function Login() {
     
-    const { user, loading, error, dispatch } = useContext(AuthContext)
-    const station  = user?.station
+    const {  loading, error, dispatch } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const [ credentials, setCredentials ] = useState({
